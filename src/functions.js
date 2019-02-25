@@ -4,4 +4,8 @@ function popper(array) {
 
 function reverser(array) {
   return array.reverse()
-}
+};
+
+function sorter(array) {
+  return array.sort()
+};

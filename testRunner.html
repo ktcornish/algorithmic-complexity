@@ -1,0 +1,28 @@
+  <head>
+    <script src="plotly-latest.min.js"></script>
+    <script src="src/arrayGenerator.js"></script>
+    <script src="src/functions.js"></script>
+    <script src="src/timer.js"></script>
+  </head>
+  <body>
+
+    <div id="tester" style="width:1000px;height:500px;"></div>
+
+  </body>
+
+  <script>
+
+    var graph = { x: [], y: [] }
+
+      for (var i = 0; i < 10000000; i += 5000) {
+        graph.y.push(Timer.prototype.timer(sorter, generateArray(i)))
+        graph.x.push(i)
+      }
+
+      // console.log(graph)
+
+      TESTER = document.getElementById('tester');
+      Plotly.plot( TESTER, [graph], {
+      margin: { t: 0 } } );
+
+  </script>
