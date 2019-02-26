@@ -20,27 +20,7 @@ function sorter(array) {
 //   return array;
 // }
 
-// function duplicates(array) {
-//   testArray = array
-//   result = []
-//   value = null
-//   count = 0
-//   for (var i = 0; i < testArray.length; i++) {
-//     value = testArray[i]
-//     for (var j = 0; j < array.length; j++) {
-//       if (value === array[j]) {
-//         count += 1
-//         array.splice(j, 1)
-//       }
-//     }
-//     for (var i = 0; i < count; i++) {
-//       if ( count > 1 ) { result.push(value) }
-//     }
-//   }
-//   return result
-// }
-//2
-function duplicates(array) {
+function duplicatesWithSort(array) {
   array.sort()
   result = []
   while ( array.length != 0 ) {
@@ -59,12 +39,15 @@ function duplicates(array) {
   return result
 }
 
-
-
-  // var results, arr= [9, 9, 111, 2, 3, 4, 4, 5, 4, 7];
-  //
-  // if(arr.filter){
-  //     results= arr.filter(function(itm, i){
-  //         return arr.lastIndexOf(itm)== i && arr.indexOf(itm)!= i;
-  //     });
-  // }
+function duplicatesNoSort(array) {
+  results = [];
+  for (var i = 0; i <= array.length; i++) {
+    for (var j = 0; j <= array.length; j++) {
+      if (i != j && array[i] == array[j]) {
+        results.push(array[j]);
+        break;
+      }
+    }
+  }
+  return results;
+}

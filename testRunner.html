@@ -12,13 +12,10 @@
 
   <script>
 
-    var graph = { x: [], y: [] }
-    var incraments = 50000
-    var method = duplicates
-    var maxArrayLength = 1000000
-    var repititions = 20
+    function createPlot(incraments, method, maxArrayLength, repititions) {
 
-    function createPlot() {
+      var graph = { x: [], y: [] }
+
       for (var i = 0; i < maxArrayLength; i += incraments) {
         graph.y.push(Timer.prototype.timer(method, generateArray(i)))
         graph.x.push(i)
@@ -35,15 +32,16 @@
         var t = graph.y[i]
         graph.y[i] = t/repititions
       }
+
+        TESTER = document.getElementById('tester');
+        Plotly.plot( TESTER, [graph], {
+        margin: { t: 0 } } );
+
     }
 
-    function plot() {
-      TESTER = document.getElementById('tester');
-      Plotly.plot( TESTER, [graph, { x: [1000, 5000, 1000], y: [100, 200, 300] }], {
-      margin: { t: 0 } } );
-    }
 
-    createPlot()
-    plot()
+    createPlot(50000, duplicatesWithSort, 1000000, 10)
+    createPlot(50000, duplicatesNoSort, 1000000, 10)
+
 
   </script>

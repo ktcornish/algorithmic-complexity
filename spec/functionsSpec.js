@@ -23,17 +23,31 @@ describe('Functions', function () {
   //   })
   // })
 
-  describe('duplicates', function() {
+  describe('duplicate with sort', function() {
     it('it returns duplicates when there is one set of duplicates', function () {
-      expect(duplicates([2, 5, 2, 10, 1])).toEqual([2, 2])
+      expect(duplicatesWithSort([2, 5, 2, 10, 1])).toEqual([2, 2])
     })
 
     it('it returns duplicates when there is two sets of duplicates', function () {
-      expect(duplicates([2, 5, 2, 10, 10, 1, 10])).toEqual([10, 10, 10, 2, 2])
+      expect(duplicatesWithSort([10, 10, 5, 10, 2, 2, 1])).toEqual([10, 10, 10, 2, 2])
     })
 
     it('it returns an empty array when there are no duplicates', function () {
-      expect(duplicates([2, 5, 10, 100, 1, 11])).toEqual([])
+      expect(duplicatesWithSort([2, 5, 10, 100, 1, 11])).toEqual([])
+    })
+  })
+
+  describe('duplicate no sort', function() {
+    it('it returns duplicates when there is one set of duplicates', function () {
+      expect(duplicatesNoSort([2, 5, 2, 10, 1])).toEqual([2, 2])
+    })
+
+    it('it returns duplicates when there is two sets of duplicates', function () {
+      expect(duplicatesNoSort([10, 10, 5, 10, 2, 2, 1])).toEqual([10, 10, 10, 2, 2])
+    })
+
+    it('it returns an empty array when there are no duplicates', function () {
+      expect(duplicatesNoSort([2, 5, 10, 100, 1, 11])).toEqual([])
     })
   })
 })
